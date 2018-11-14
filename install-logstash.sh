@@ -21,19 +21,6 @@ echo "input {
     ssl_key => "/etc/pki/tls/private/logstash-forwarder.key"
   }
 }" >> /etc/logstash/conf.d/02-beats-input.conf
-echo "filter {
-  if [type] == "syslog" {
-    grok {
-      match => { "message" => "%{SYSLOGTIMESTAMP:syslog_timestamp} %{SYSLOGHOST:syslog_hostname} %{DATA:syslog_program}(?:\[%{POSINT:syslog_pid}\])?: %{GREEDYDATA:syslog_message}" }
-      add_field => [ "received_at", "%{@timestamp}" ]
-      add_field => [ "received_from", "%{host}" ]
-    }
-    syslog_pri { }
-    date {
-      match => [ "syslog_timestamp", "MMM  d HH:mm:ss", "MMM dd HH:mm:ss" ]
-    }
-  }
-}" >> /etc/logstash/conf.d/10-syslog/filter.conf
 echo "output {
   elasticsearch {
     hosts => ["localhost:9200"]
@@ -43,8 +30,6 @@ echo "output {
     document_type => "%{[@metadata][type]}"
   }
 }" >> /etc/logstash/conf.d/30-elasticsearch-output.conf
-echo "testen van de logstash configuratie."
-sudo /opt/logstash/bin/logstash --configtest -f /etc/logstash/conf.d/
 echo "Herstarten van logstash service."
 sudo systemctl restart logstash
 sudo systemctl enable logstash
