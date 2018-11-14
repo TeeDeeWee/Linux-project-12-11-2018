@@ -19,4 +19,6 @@ pillar_roots:
     - /srv/pillar" >> /etc/salt/master
 echo "Herstarten van de Saltmaster service."
 sudo systemctl restart salt-master
+echo "De status van salt-master weergeven."
+sudo systemctl status salt-master
 echo "De insallatie en configuratie zijn voltooid."

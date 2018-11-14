@@ -11,4 +11,6 @@ echo "Aanpassen van configuratie files."
 echo "master: 127.0.0.1" >> /etc/salt/minion
 echo "Herstarten van de Saltminion service."
 sudo systemctl restart salt-minion
+echo "De status van salt-minion weergeven."
+sudo systemctl status salt-minion
 echo "De insallatie en configuratie zijn voltooid."
