@@ -4,7 +4,7 @@ echo "deb http://packages.elastic.co/logstash/2.3/debian stable main" | sudo tee
 echo "Updaten van de package database."
 sudo apt-get update
 echo "Installere van Logstash package."
-sudo apt-get install logstash
+yes | sudo apt-get install logstash
 echo "Configureren van logstash."
 sudo mkdir -p /etc/pki/tls/certs
 sudo mkdir -p /etc/pki/tls/private

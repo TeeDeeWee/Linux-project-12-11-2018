@@ -10,6 +10,6 @@ sudo apt-get update
 echo "De juiste repository kiezen."
 apt-cache policy docker-ce
 echo "Installeren van Docker."
-sudo apt-get install -y docker-ce
+yes | sudo apt-get install -y docker-ce
 echo "De status van Docker controleren."
 sudo systemctl status docker
