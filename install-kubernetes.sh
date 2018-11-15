@@ -7,3 +7,5 @@ echo "Updaten van de repository."
 sudo apt-get update -y
 echo "Installeren van Kubernetes."
 yes | sudo apt-get install kubelet kubeadm kubectl -y
+echo "Installatie van kubernetes testen."
+sudo kubeadm init --pod-network-cidr=192.168.56.0/24 --apiserver-advertise-address=192.168.0.101
