@@ -2,7 +2,7 @@
 echo "Installatie van Docker."
 echo "Toevoegen van de repository."
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $lsb_release -cs) stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
 echo "Updaten van de package index."
 sudo apt-get update
 echo "De juiste repository kiezen."
