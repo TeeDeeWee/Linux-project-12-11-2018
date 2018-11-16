@@ -6,7 +6,7 @@ echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/
 echo "Updaten van de repository."
 sudo apt-get update -y
 echo "Installeren van Kubernetes."
-yes | sudo apt-get install kubelet kubeadm kubectl -y
+sudo apt-get install kubelet kubeadm kubectl -y
 echo "Swap uitzetten."
 sudo swapoff -a
 
