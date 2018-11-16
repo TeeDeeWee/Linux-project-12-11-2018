@@ -10,5 +10,8 @@ install_docker:
     - required:
       - pkgrepo: install_docker_repo
 
+install_pip:
+  pkg.installed:
+    - name: python-pip
 
     
